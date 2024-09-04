@@ -9,6 +9,6 @@
 </head>
 <body>
 <h1>Veranstaltungen in Kärnten</h1>
-<?php include 'events.php'; ?>
+<?php include 'apiCall.php'; ?>
 </body>
 </html>
