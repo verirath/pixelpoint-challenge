@@ -1,0 +1,62 @@
+/* Style the container for the event details */
+.event-details-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Style for the event image */
+.event-image img {
+    width: 400px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Style for the event information section */
+.event-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Title and brief details like date and location */
+.event-short-details h1 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.event-short-details p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Icons (using FontAwesome) */
+.event-short-details i {
+    margin-right: 5px;
+}
+
+/* Long description styling */
+.event-description {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Additional location and contact information */
+.event-location-info {
+    margin-top: 30px;
+}
+
+.event-location-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.location-details p {
+    font-size: 14px;
+    line-height: 1.5;
+}
