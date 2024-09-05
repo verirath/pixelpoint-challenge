@@ -36,20 +36,45 @@ if ($events && isset($events['@graph'])) {
     $paginated_events = array_slice($events['@graph'], $offset, $events_per_page);
 
     echo '<div class="events-container">';
-    foreach ($paginated_events as $event) {
-        if (!empty($event['name']) && !empty($event['description']) && !empty($event['image'][0]['thumbnailUrl'])) {
-            echo '<div class="event-card">';
-            echo '<img src="' . htmlspecialchars($event['image'][0]['thumbnailUrl']) . '" alt="' . htmlspecialchars($event['name']) . '">';
-            echo '<div class="event-content">';
-            echo '<h3>' . htmlspecialchars($event['name']) . '</h3>';
-            echo '<p class="event-date"><i class="fa fa-calendar"></i> ' . htmlspecialchars($event['startDate']) . '</p>';
-            echo '<p class="event-location"><i class="fa fa-map-marker"></i> ' . htmlspecialchars($event['location']['name']) . '</p>';
-            echo '<a href="event_details.php?id=' . urlencode($event['@id']) . '" class="details-link">Details anzeigen</a>';
-            echo '</div>';
-            echo '</div>';
+foreach ($paginated_events as $event) {
+    if (!empty($event['name']) && !empty($event['description']) && !empty($event['image'][0]['thumbnailUrl'])) {
+        echo '<div class="event-card">';
+        echo '<img src="' . htmlspecialchars($event['image'][0]['thumbnailUrl']) . '" alt="' . htmlspecialchars($event['name']) . '" class="event-image">';
+        echo '<div class="event-content">';
+
+        // Event title
+        echo '<h3 class="event-title">' . (!empty($event['name']) ? htmlspecialchars($event['name']) : 'Event name not available') . '</h3>';
+
+        // Event date
+        echo '<div class="event-info">';
+        if (!empty($event['startDate'])) {
+            $startDate = new DateTime($event['startDate']);
+            echo '<p class="event-date"><i class="fa fa-calendar"></i> Start: ' . $startDate->format('d. F Y') . '</p>';
+        } else {
+            echo '<p class="event-date"><i class="fa fa-calendar"></i> Start date not specified</p>';
         }
+
+        // Display end date if available
+        if (!empty($event['endDate'])) {
+            $endDate = new DateTime($event['endDate']);
+            echo '<p class="event-date"><i class="fa fa-calendar"></i> End: ' . $endDate->format('d. F Y') . '</p>';
+        } else {
+            echo '<p class="event-date"><i class="fa fa-calendar"></i> End date not specified</p>';
+        }
+
+        // Event location
+        echo '<p class="event-location"><i class="fa fa-map-marker"></i> ' . (isset($event['location']['name']) ? htmlspecialchars($event['location']['name']) : 'Location not specified') . '</p>';
+        echo '</div>'; // Close event-info
+
+        // Details link
+        echo '<a href="event_details.php?id=' . urlencode($event['@id']) . '" class="details-link">Details</a>';
+        echo '</div>'; // Close event-content
+        echo '</div>'; // Close event-card
     }
-    echo '</div>';
+}
+
+    echo '</div>'; // Close events-container
+
     if ($total_pages > 1) {
         echo '<div class="pagination">';
         for ($i = 1; $i <= $total_pages; $i++) {

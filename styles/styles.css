@@ -9,22 +9,22 @@ h3 {
 
 .events-container {
     display: flex;
-    flex-direction: column; /* Stack the cards vertically */
-    gap: 20px; /* Space between each event card */
+    flex-direction: column;
+    gap: 20px;
     align-items: center;
     padding: 20px;
 }
 
 .event-card {
-    display: flex; /* Add flex to structure image and content side by side */
+    display: flex;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
-    width: 90%; /* Make cards wider to match the design */
-    max-width: 1200px;
-    margin: 20px 0;
+    width: 90%;
+    max-width: 1000px; /* Make it a bit narrower */
+    margin: 10px 0; /* Decrease the margin to reduce spacing */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
-    padding: 20px;
+    padding: 15px; /* Reduced padding */
 }
 
 .event-card:hover {
@@ -32,28 +32,29 @@ h3 {
 }
 
 .event-card img {
-    width: 250px; /* Fixed width for images */
-    height: auto;
-    margin-right: 20px;
+    width: 220px; /* Reduce the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures that the image is cropped without distortion */
+    margin-right: 15px; /* Less margin for a tighter layout */
 }
 
 .event-content {
-    flex-grow: 1; /* Allow the content to take the remaining space */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .event-content h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
+    font-size: 18px; /* Reduce the title size */
+    margin-bottom: 5px; /* Less margin to reduce the height */
 }
 
 .event-date,
 .event-location {
-    font-size: 14px;
+    font-size: 12px; /* Make the date and location text smaller */
     color: #555;
-    margin-bottom: 8px;
+    margin-bottom: 6px; /* Less space between items */
     display: flex;
     align-items: center;
 }
@@ -66,17 +67,17 @@ h3 {
 
 .details-link {
     display: inline-block;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #b60808;
-    color: #fff; /* White text for details link */
+    margin-top: 8px;
+    padding: 8px;
+    color: #B60808FF;
+    border: solid #B60808FF;
     text-decoration: none;
     border-radius: 5px;
-    font-weight: bold;
     text-align: center;
-    max-width: 150px;
+    max-width: fit-content;
 }
 
 .details-link:hover {
-    background-color: #d90404;
+    background-color: #B60808FF;
+    color: white;
 }
