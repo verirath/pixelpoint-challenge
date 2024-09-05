@@ -2,9 +2,13 @@ body {
     font-family: Arial, sans-serif;
 }
 
+h3{
+    text-align: center;
+    font-size: 2.2rem;
+}
+
 .events-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     justify-content: space-around;
 }
 

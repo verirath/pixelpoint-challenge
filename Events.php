@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
+<h3>Alle Veranstaltungen im Überblick</h3>
 <?php include 'apiCall.php'; ?>
 </body>
 <footer>
