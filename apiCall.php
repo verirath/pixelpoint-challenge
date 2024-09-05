@@ -26,9 +26,17 @@ function fetch_carinthia_events() {
 
 $events = fetch_carinthia_events();
 
+$events_per_page = 6; // Number of events to show per page
+$current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Current page number from URL
+$offset = ($current_page - 1) * $events_per_page; // Calculate the offset for pagination
+
 if ($events && isset($events['@graph'])) {
+    $total_events = count($events['@graph']);
+    $total_pages = ceil($total_events / $events_per_page);
+    $paginated_events = array_slice($events['@graph'], $offset, $events_per_page);
+
     echo '<div class="events-container">';
-    foreach ($events['@graph'] as $event) {
+    foreach ($paginated_events as $event) {
         if (!empty($event['name']) && !empty($event['description']) && !empty($event['image'][0]['thumbnailUrl'])) {
             echo '<div class="event-card">';
             echo '<img src="' . htmlspecialchars($event['image'][0]['thumbnailUrl']) . '" alt="' . htmlspecialchars($event['name']) . '">';
@@ -42,8 +50,17 @@ if ($events && isset($events['@graph'])) {
         }
     }
     echo '</div>';
+  if ($total_pages > 1) {
+        echo '<div class="pagination">';
+        for ($i = 1; $i <= $total_pages; $i++) {
+            if ($i == $current_page) {
+                echo '<span class="current-page">' . $i . '</span>';
+            } else {
+                echo '<a href="?page=' . $i . '" class="page-link">' . $i . '</a>';
+            }
+        }
+        echo '</div>';
+    }
 } else {
     echo '<p>Keine Veranstaltungen gefunden.</p>';
 }
-
-?>

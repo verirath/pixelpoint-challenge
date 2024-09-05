@@ -1,0 +1,11 @@
+.header{
+    background-color: #221c34;
+    padding: 1rem;
+    margin: 0;
+}
+
+h1{
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    color: white;
+}
