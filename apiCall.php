@@ -50,7 +50,7 @@ if ($events && isset($events['@graph'])) {
         }
     }
     echo '</div>';
-  if ($total_pages > 1) {
+    if ($total_pages > 1) {
         echo '<div class="pagination">';
         for ($i = 1; $i <= $total_pages; $i++) {
             if ($i == $current_page) {
