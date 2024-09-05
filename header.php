@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include 'header.php'; ?>
+    <title>Kärnten Events</title>
 </head>
 <body>
-<?php include 'apiCall.php'; ?>
-</body>
-</html>
+<header>
+    <p>Alle Veranstaltungen von Kärnten im Überblick</p>
+</header>
+<main>
