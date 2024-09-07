@@ -60,7 +60,11 @@ if ($eventId) {
 
             <!-- Event Image -->
             <div class="event-image">
-                <img src="<?php echo htmlspecialchars($event['image'][0]['thumbnailUrl']); ?>" alt="<?php echo htmlspecialchars($event['name']); ?>">
+                <?php if (!empty($event['image'])) { ?>
+                    <img src="<?php echo htmlspecialchars($event['image'][0]['thumbnailUrl']); ?>" alt="<?php echo htmlspecialchars($event['name']); ?>">
+                <?php } else { ?>
+                    <img src="default-image.jpg" alt="Default image"> <!-- Fallback image if none exists -->
+                <?php } ?>
             </div>
 
             <!-- Event Information and Description -->

@@ -1,62 +1,99 @@
-/* Style the container for the event details */
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h3 {
+    margin: 0 0 15px;
+    color: #444;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+/* Main Container */
 .event-details-container {
     display: flex;
+    align-items: flex-start; /* Align items to the top (left side) */
+    padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
-    gap: 20px;
+    background-color: #fff;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Style for the event image */
+/* Event Image */
+.event-image {
+    flex: 0 0 35%; /* Fix the image container width to 35% */
+    margin-right: 20px; /* Adds space between the image and content */
+}
+
 .event-image img {
-    width: 400px;
+    width: 100%; /* Ensure the image takes full width of its container */
     height: auto;
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Style for the event information section */
+/* Event Info */
 .event-info {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex: 1; /* Content takes the remaining space */
 }
 
-/* Title and brief details like date and location */
-.event-short-details h1 {
-    font-size: 28px;
-    margin: 0;
+/* Event Short Details */
+.event-short-details {
+    margin-bottom: 20px;
 }
 
 .event-short-details p {
-    font-size: 16px;
     margin: 5px 0;
+}
+
+.event-short-details i {
+    margin-right: 10px;
     color: #555;
 }
 
-/* Icons (using FontAwesome) */
-.event-short-details i {
-    margin-right: 5px;
-}
-
-/* Long description styling */
+/* Event Description */
 .event-description {
-    margin-top: 20px;
-    font-size: 16px;
-    line-height: 1.6;
+    margin-bottom: 30px;
 }
 
-/* Additional location and contact information */
+/* Location Info */
 .event-location-info {
-    margin-top: 30px;
-}
-
-.event-location-info h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .location-details p {
-    font-size: 14px;
-    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .event-details-container {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        padding: 10px;
+    }
+
+    .event-image {
+        margin-right: 0; /* Remove margin between image and content */
+        margin-bottom: 20px; /* Add space below the image */
+    }
+
+    .event-image img {
+        max-width: 100%;
+    }
+
+    .event-info {
+        margin-left: 0;
+    }
 }
