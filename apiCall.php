@@ -62,10 +62,6 @@ foreach ($paginated_events as $event) {
             echo '<p class="event-date"><i class="fa fa-calendar"></i> End date not specified</p>';
         }
 
-        // Event location
-        echo '<p class="event-location"><i class="fa fa-map-marker"></i> ' . (isset($event['location']['name']) ? htmlspecialchars($event['location']['name']) : 'Location not specified') . '</p>';
-        echo '</div>'; // Close event-info
-
         // Details link
         echo '<a href="event_details.php?id=' . urlencode($event['@id']) . '" class="details-link">Details</a>';
         echo '</div>'; // Close event-content
