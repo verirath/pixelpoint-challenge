@@ -83,6 +83,7 @@ foreach ($paginated_events as $event) {
         }
         echo '</div>';
     }
+
 } else {
     echo '<p>Keine Veranstaltungen gefunden.</p>';
 }

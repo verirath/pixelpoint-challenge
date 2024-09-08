@@ -81,3 +81,40 @@ h3 {
     background-color: #B60808FF;
     color: white;
 }
+/* Pagination container */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Style for pagination links */
+.page-link {
+    display: inline-block;
+    padding: 8px 12px;
+    color: #B60808FF;
+    border: 1px solid #B60808FF;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.page-link:hover {
+    background-color: #B60808FF;
+    color: white;
+}
+
+/* Style for the current page indicator */
+.current-page {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #B60808FF;
+    color: white;
+    border: 1px solid #B60808FF;
+    border-radius: 5px;
+    margin: 0 5px;
+    text-align: center;
+}
+
