@@ -1,4 +1,7 @@
 <?php
+
+include 'header.php';
+
 // Define the function to fetch event by ID from the API
 function fetch_event_by_id($eventId) {
     $api_url = "https://data.carinthia.com/api/v4/endpoints/557ea81f-6d65-6476-9e01-d196112514d2?include=image&token=9962098a5f6c6ae8d16ad5aba95afee0";
@@ -35,7 +38,7 @@ function fetch_event_by_id($eventId) {
     return null; // Return null if no event matches the ID
 }
 
-// Get the event ID from the URL (assuming it's passed as a GET parameter)
+// Get the event ID from the URL
 $eventId = isset($_GET['id']) ? $_GET['id'] : null;
 
 if ($eventId) {
@@ -50,10 +53,15 @@ if ($eventId) {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title><?php echo htmlspecialchars($event['name']); ?> - Event Details</title>
-            <link rel="stylesheet" href="style.css"> <!-- Add your CSS file here -->
+            <link rel="stylesheet" href="./styles/detailView.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- For icons -->
         </head>
         <body>
+
+        <!-- Back Button -->
+        <div class="back-button-container">
+            <button onclick="goBack()">← Back</button>
+        </div>
 
         <!-- Main Content Container -->
         <div class="event-details-container">
@@ -62,8 +70,6 @@ if ($eventId) {
             <div class="event-image">
                 <?php if (!empty($event['image'])) { ?>
                     <img src="<?php echo htmlspecialchars($event['image'][0]['thumbnailUrl']); ?>" alt="<?php echo htmlspecialchars($event['name']); ?>">
-                <?php } else { ?>
-                    <img src="default-image.jpg" alt="Default image"> <!-- Fallback image if none exists -->
                 <?php } ?>
             </div>
 
@@ -72,7 +78,7 @@ if ($eventId) {
 
                 <!-- Event Title and Short Details -->
                 <div class="event-short-details">
-                    <h1><?php echo htmlspecialchars($event['name']); ?></h1>
+                    <h1 class="headerTitle"><?php echo htmlspecialchars($event['name']); ?></h1>
                     <p><i class="fa fa-calendar"></i>
                         <?php
                         // Display the start date
@@ -86,31 +92,23 @@ if ($eventId) {
                         }
                         ?>
                     </p>
-                    <p><i class="fa fa-map-marker"></i>
-                        <?php echo isset($event['location']['name']) ? htmlspecialchars($event['location']['name']) : 'Location not specified'; ?>
-                    </p>
                 </div>
 
                 <!-- Event Long Description -->
                 <div class="event-description">
-                    <p><?php echo !empty($event['description']) ? nl2br(htmlspecialchars($event['description'])) : 'No description available'; ?></p>
+                    <!-- Remove htmlspecialchars to allow HTML tags to be rendered -->
+                    <p><?php echo !empty($event['description']) ? nl2br($event['description']) : 'No description available'; ?></p>
                 </div>
 
-                <!-- Additional Info (Location and Contact) -->
-                <div class="event-location-info">
-                    <h3>Information & Veranstalter</h3>
-                    <div class="location-details">
-                        <p><strong>Veranstaltungsort</strong><br>
-                            <?php echo isset($event['location']['name']) ? htmlspecialchars($event['location']['name']) : 'Location not specified'; ?><br>
-                            <?php echo isset($event['location']['address']) ? htmlspecialchars($event['location']['address']) : ''; ?><br>
-                            <?php echo isset($event['location']['phone']) ? htmlspecialchars($event['location']['phone']) : ''; ?><br>
-                            <?php echo isset($event['location']['email']) ? htmlspecialchars($event['location']['email']) : ''; ?>
-                        </p>
-                    </div>
-                </div>
             </div>
         </div>
 
+        <!-- JavaScript for the Back Button -->
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
         </body>
         </html>
         <?php

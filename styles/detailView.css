@@ -8,7 +8,11 @@ body {
     color: #333;
 }
 
-h1, h3 {
+.headerTitle{
+    color: #444;
+}
+
+h3 {
     margin: 0 0 15px;
     color: #444;
 }
@@ -30,12 +34,12 @@ p {
 
 /* Event Image */
 .event-image {
-    flex: 0 0 35%; /* Fix the image container width to 35% */
-    margin-right: 20px; /* Adds space between the image and content */
+    flex: 0 0 35%;
+    margin-right: 20px;
 }
 
 .event-image img {
-    width: 100%; /* Ensure the image takes full width of its container */
+    width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -43,7 +47,7 @@ p {
 
 /* Event Info */
 .event-info {
-    flex: 1; /* Content takes the remaining space */
+    flex: 1;
 }
 
 /* Event Short Details */
@@ -77,23 +81,21 @@ p {
     margin: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .event-details-container {
-        flex-direction: column; /* Stack items vertically on smaller screens */
-        padding: 10px;
+button{
+        display: inline-block;
+        margin-top: 8px;
+        margin-left: 1rem;
+        padding: 8px;
+        color: #B60808FF;
+        border: solid #B60808FF;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+        max-width: fit-content;
     }
 
-    .event-image {
-        margin-right: 0; /* Remove margin between image and content */
-        margin-bottom: 20px; /* Add space below the image */
+button:hover {
+        background-color: #B60808FF;
+        color: white;
     }
 
-    .event-image img {
-        max-width: 100%;
-    }
-
-    .event-info {
-        margin-left: 0;
-    }
-}
