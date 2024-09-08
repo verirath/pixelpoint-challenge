@@ -92,6 +92,7 @@ if ($eventId) {
                         }
                         ?>
                     </p>
+
                 </div>
 
                 <!-- Event Long Description -->

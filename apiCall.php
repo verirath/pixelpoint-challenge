@@ -61,6 +61,7 @@ foreach ($paginated_events as $event) {
         } else {
             echo '<p class="event-date"><i class="fa fa-calendar"></i> End date not specified</p>';
         }
+        echo '</div>'; // Close event-info
 
         // Details link
         echo '<a href="event_details.php?id=' . urlencode($event['@id']) . '" class="details-link">Details</a>';
